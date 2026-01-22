@@ -10,7 +10,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    # This spins up a temporary database so your Prisma checks don't fail
     services:
       postgres:
         image: postgres:15
@@ -32,24 +31,25 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          # Removed 'cache: npm' to bypass the missing lockfile error
 
-      - name: Install Dependencies
+      - name: Install API Dependencies
         run: npm install
+        working-directory: apps/api
+
+      - name: Install Frontend Dependencies
+        run: npm install
+        working-directory: apps/frontend
 
       - name: Validate Prisma Schema
         env:
           DATABASE_URL: postgresql://postgres:password@localhost:5432/aurascale
-        run: |
-          cd apps/api
-          npx prisma generate
+        run: npx prisma generate
+        working-directory: apps/api
 
-      - name: Build Full-Stack Project
-        run: |
-          # Build API (if build script exists)
-          cd apps/api
-          npm run build --if-present
-          
-          # Build Frontend
-          cd ../frontend
-          npm run build
+      - name: Build API
+        run: npm run build --if-present
+        working-directory: apps/api
+
+      - name: Build Frontend
+        run: npm run build
+        working-directory: apps/frontend
