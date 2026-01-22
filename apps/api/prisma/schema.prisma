@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client"
+  // This will create a 'generated' folder in your src directory
+  output   = "../src/generated"
+}
+
+datasource db {
+  provider = "postgresql"
+  // url = env("DATABASE_URL")  <-- DELETE THIS LINE
+}
+
+model Resource {
+  id          Int   @id @default(cuid())
+  name        String
+  type        String
+  provider    String
+  environment String
+  status      ResourceStatus
+  costs       CostMetric[]
+}
+
+model CostMetric {
+  id         String   @id @default(cuid())
+  amount     Float
+  timestamp  DateTime
+  resourceId String
+  resource   Resource @relation(fields: [resourceId], references: [id])
+}
+
+enum ResourceStatus {
+  HEALTHY
+  DEGRADED
+  FAILING
+}
