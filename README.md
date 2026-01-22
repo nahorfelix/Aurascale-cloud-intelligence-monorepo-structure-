@@ -1,5 +1,5 @@
 # 🌌 AuraScale Systems | Unified Cloud Intelligence
-
+![Build Status](https://github.com/nahorfelix/Aurascale-cloud-intelligence-monorepo-structure-/actions/workflows/ci.yml/badge.svg)
 > **The Hook:** A "Single Pane of Glass" that seamlessly connects Cloud Infrastructure Costs, Security Vulnerabilities, and Deployment Health into a high-performance command center.
 ## 🚀 The Vision
 Managing fragmented cloud infrastructure is the #1 cause of budget overruns and security blind spots. **AuraScale Systems** solves this by centralizing data from AWS, Azure, GCP, and Cloudflare into a unified, viewport-locked dashboard. No scrolling. No noise. Just the signals you need to scale safely.
