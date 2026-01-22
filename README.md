@@ -43,7 +43,13 @@ AuraScale utilizes a modern monorepo structure:
 ### 1. Prerequisites
 * Node.js v22+
 * PostgreSQL Database
+---
 
+## 🗺️ Roadmap & Future Enhancements
+ **AI-Powered Cost Prediction:** Integrating machine learning to forecast next month's cloud spend based on current trends.
+ **Automated Remediation:** One-click "Fix" buttons for security vulnerabilities detected in the dashboard.
+ **Slack/Discord Webhooks:** Real-time alerting for critical infrastructure heartbeats.
+ **Terraform Integration:** Visualizing "Infrastructure as Code" changes before they are applied.
 ### 2. Installation
 ```bash
 # Clone the repository
